@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vamos sair?</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Vamos sair sábado para encher a barriga? </h1>
+  <img src="./gatinhofofo.jpg" alt="">
+
+  <div class="buttons">
+    <button id="sim">Sim</button>
+    <button id="nao">Não</button>
+  </div>
+
+  <script>
+    const sim = document.getElementById('sim');
+    const nao = document.getElementById('nao');
+
+    sim.addEventListener('click', () => {
+      alert('Marcado dona giovanna');
+      alert('Obrigado pelos dados do cartão, vou usar pra comprar um celta 1998')
+      window.location.reload();
+    });
+
+    function handleClickNot() {
+      const laguraTela = window.innerWidth;
+      const alturaTela = window.innerHeight;
+
+      const { x: xNao, y: yNao } = nao.getBoundingClientRect();
+
+      let x = Math.floor(Math.random() * laguraTela) - nao.offsetWidth;
+      let y = Math.floor(Math.random() * alturaTela) - nao.offsetHeight;
+
+      if (x < 0) x = 50;
+      if (y < 0) y = 50;
+
+      if (x > laguraTela) x = laguraTela - 50;
+      if (y > alturaTela) y = alturaTela - 50;
+
+
+      nao.style.top = `${y}px`;
+      nao.style.left = `${x}px`;
+
+    }
+
+    nao.addEventListener('click', handleClickNot);
+    nao.addEventListener('mouseenter', handleClickNot);
+  </script>
+</body>
+
+</html>
